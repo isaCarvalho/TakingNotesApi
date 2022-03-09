@@ -1,16 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="notes.NoteTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-03-09T18:18:55" hostname="FUS-9QQN1J3" time="1.068">
+<testsuite name="notes.NoteTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-03-09T18:53:30" hostname="FUS-9QQN1J3" time="1.295">
   <properties/>
-  <testcase name="Delete Note" classname="notes.NoteTest" time="1.068"/>
-  <system-out><![CDATA[15:18:55.390 [Test worker] DEBUG Exposed - DROP TABLE IF EXISTS notes
-15:18:55.489 [Test worker] INFO ktor.test - Autoreload is disabled because the development mode is off.
-15:18:55.494 [Test worker] INFO ktor.test - Application started in 0.044 seconds.
-15:18:55.532 [Test worker] DEBUG Exposed - CREATE TABLE IF NOT EXISTS notes (id uuid PRIMARY KEY, "content" VARCHAR(500) NOT NULL)
-15:18:55.537 [Test worker] DEBUG Exposed - ALTER TABLE notes ADD CONSTRAINT notes_id_unique UNIQUE (id)
-15:18:56.101 [DefaultDispatcher-worker-1 @request#1] DEBUG Exposed - INSERT INTO notes ("content", id) VALUES ('example 1', 'd9f86b41-6bc0-4e10-93be-2f30903b0ca5')
-15:18:56.126 [DefaultDispatcher-worker-1 @request#3] DEBUG Exposed - SELECT notes.id, notes."content" FROM notes
-15:18:56.179 [DefaultDispatcher-worker-2 @request#7] DEBUG Exposed - DELETE FROM notes WHERE notes.id = 'd9f86b41-6bc0-4e10-93be-2f30903b0ca5'
-15:18:56.191 [DefaultDispatcher-worker-2 @request#9] DEBUG Exposed - SELECT notes.id, notes."content" FROM notes
+  <testcase name="Note By ID" classname="notes.NoteTest" time="0.958"/>
+  <testcase name="All Notes" classname="notes.NoteTest" time="0.094"/>
+  <testcase name="Delete Note" classname="notes.NoteTest" time="0.093"/>
+  <testcase name="Update Note" classname="notes.NoteTest" time="0.093"/>
+  <testcase name="Create Note" classname="notes.NoteTest" time="0.056"/>
+  <system-out><![CDATA[15:53:30.869 [Test worker] DEBUG Exposed - DROP TABLE IF EXISTS notes
+15:53:30.955 [Test worker] INFO ktor.test - Autoreload is disabled because the development mode is off.
+15:53:30.964 [Test worker] INFO ktor.test - Application started in 0.04 seconds.
+15:53:30.995 [Test worker] DEBUG Exposed - CREATE TABLE IF NOT EXISTS notes (id uuid PRIMARY KEY, "content" VARCHAR(500) NOT NULL)
+15:53:31.000 [Test worker] DEBUG Exposed - ALTER TABLE notes ADD CONSTRAINT notes_id_unique UNIQUE (id)
+15:53:31.527 [DefaultDispatcher-worker-1 @request#1] DEBUG Exposed - INSERT INTO notes ("content", id) VALUES ('example 1', '7a85e45c-369f-41cc-b2fc-6eb7500a14e7')
+15:53:31.556 [DefaultDispatcher-worker-1 @request#3] DEBUG Exposed - SELECT notes.id, notes."content" FROM notes WHERE notes.id = '7a85e45c-369f-41cc-b2fc-6eb7500a14e7'
+SQL: SELECT notes.id, notes."content" FROM notes WHERE notes.id = '7a85e45c-369f-41cc-b2fc-6eb7500a14e7'
+15:53:31.595 [Test worker] DEBUG Exposed - DROP TABLE IF EXISTS notes
+15:53:31.599 [Test worker] INFO ktor.test - Autoreload is disabled because the development mode is off.
+15:53:31.599 [Test worker] INFO ktor.test - Application started in 0.0 seconds.
+15:53:31.620 [Test worker] DEBUG Exposed - CREATE TABLE IF NOT EXISTS notes (id uuid PRIMARY KEY, "content" VARCHAR(500) NOT NULL)
+15:53:31.625 [Test worker] DEBUG Exposed - ALTER TABLE notes ADD CONSTRAINT notes_id_unique UNIQUE (id)
+15:53:31.637 [DefaultDispatcher-worker-3 @request#7] DEBUG Exposed - SELECT notes.id, notes."content" FROM notes
+15:53:31.661 [DefaultDispatcher-worker-1 @request#11] DEBUG Exposed - INSERT INTO notes ("content", id) VALUES ('example 1', '6c16c38b-41c9-495d-811d-6cc90e0a55ce')
+15:53:31.672 [DefaultDispatcher-worker-1 @request#13] DEBUG Exposed - SELECT notes.id, notes."content" FROM notes
+15:53:31.689 [Test worker] DEBUG Exposed - DROP TABLE IF EXISTS notes
+15:53:31.693 [Test worker] INFO ktor.test - Autoreload is disabled because the development mode is off.
+15:53:31.694 [Test worker] INFO ktor.test - Application started in 0.001 seconds.
+15:53:31.716 [Test worker] DEBUG Exposed - CREATE TABLE IF NOT EXISTS notes (id uuid PRIMARY KEY, "content" VARCHAR(500) NOT NULL)
+15:53:31.721 [Test worker] DEBUG Exposed - ALTER TABLE notes ADD CONSTRAINT notes_id_unique UNIQUE (id)
+15:53:31.734 [DefaultDispatcher-worker-2 @request#17] DEBUG Exposed - INSERT INTO notes ("content", id) VALUES ('example 1', '54cb1da6-d236-43fd-9b48-1ebc023ae1a0')
+15:53:31.745 [DefaultDispatcher-worker-2 @request#19] DEBUG Exposed - SELECT notes.id, notes."content" FROM notes
+15:53:31.757 [DefaultDispatcher-worker-3 @request#23] DEBUG Exposed - DELETE FROM notes WHERE notes.id = '54cb1da6-d236-43fd-9b48-1ebc023ae1a0'
+15:53:31.768 [DefaultDispatcher-worker-3 @request#25] DEBUG Exposed - SELECT notes.id, notes."content" FROM notes
+15:53:31.782 [Test worker] DEBUG Exposed - DROP TABLE IF EXISTS notes
+15:53:31.786 [Test worker] INFO ktor.test - Autoreload is disabled because the development mode is off.
+15:53:31.786 [Test worker] INFO ktor.test - Application started in 0.0 seconds.
+15:53:31.807 [Test worker] DEBUG Exposed - CREATE TABLE IF NOT EXISTS notes (id uuid PRIMARY KEY, "content" VARCHAR(500) NOT NULL)
+15:53:31.811 [Test worker] DEBUG Exposed - ALTER TABLE notes ADD CONSTRAINT notes_id_unique UNIQUE (id)
+15:53:31.825 [DefaultDispatcher-worker-3 @request#29] DEBUG Exposed - INSERT INTO notes ("content", id) VALUES ('example 1', 'ed8caf33-4c53-4e6e-a4d8-de2a0d7ba2ea')
+15:53:31.835 [DefaultDispatcher-worker-3 @request#31] DEBUG Exposed - SELECT notes.id, notes."content" FROM notes
+15:53:31.850 [DefaultDispatcher-worker-1 @request#35] DEBUG Exposed - UPDATE notes SET id='ed8caf33-4c53-4e6e-a4d8-de2a0d7ba2ea', "content"='example 2' WHERE notes.id = 'ed8caf33-4c53-4e6e-a4d8-de2a0d7ba2ea'
+15:53:31.860 [DefaultDispatcher-worker-1 @request#37] DEBUG Exposed - SELECT notes.id, notes."content" FROM notes
+15:53:31.874 [Test worker] DEBUG Exposed - DROP TABLE IF EXISTS notes
+15:53:31.878 [Test worker] INFO ktor.test - Autoreload is disabled because the development mode is off.
+15:53:31.878 [Test worker] INFO ktor.test - Application started in 0.0 seconds.
+15:53:31.898 [Test worker] DEBUG Exposed - CREATE TABLE IF NOT EXISTS notes (id uuid PRIMARY KEY, "content" VARCHAR(500) NOT NULL)
+15:53:31.903 [Test worker] DEBUG Exposed - ALTER TABLE notes ADD CONSTRAINT notes_id_unique UNIQUE (id)
+15:53:31.916 [DefaultDispatcher-worker-2 @request#41] DEBUG Exposed - INSERT INTO notes ("content", id) VALUES ('example', '6c331c92-fb7c-4fd6-af77-3cd428824a5e')
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

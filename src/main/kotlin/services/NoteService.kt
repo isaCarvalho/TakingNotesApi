@@ -57,8 +57,8 @@ class NoteServiceImpl : NoteService {
             Notes.select {
                 addLogger(StdOutSqlLogger)
                 Notes.id eq id
-            }
-        }.firstOrNull()
+            }.firstOrNull()
+        }
 
         return row?.asNote()
     }

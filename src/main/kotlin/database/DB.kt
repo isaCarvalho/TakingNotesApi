@@ -3,11 +3,11 @@ package database
 import org.jetbrains.exposed.sql.Database
 
 object DB {
-    private const val host = "localhost"
-    private const val port = 5555
-    private const val dbName = "taking_notes_db"
-    private const val dbUser = "taking_notes"
-    private const val dbPassword = "123456"
+    private val host = System.getenv("DB_HOST")
+    private val port = System.getenv("DB_PORT")
+    private val dbName = System.getenv("DB_NAME")
+    private val dbUser = System.getenv("DB_USER")
+    private val dbPassword = System.getenv("DB_PASSWORD")
 
     fun connect() = Database.connect("jdbc:postgresql://$host:$port/$dbName", driver = "org.postgresql.Driver",
         user = dbUser, password = dbPassword

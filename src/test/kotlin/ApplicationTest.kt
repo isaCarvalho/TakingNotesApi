@@ -2,7 +2,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import io.ktor.application.*
 import io.ktor.http.*
 import io.ktor.server.testing.*
-import junit.framework.Assert.assertEquals
+import org.junit.Assert
 import org.junit.Test
 
 class ApplicationTest {
@@ -11,7 +11,7 @@ class ApplicationTest {
     fun emptyPath() {
         withTestApplication(Application::mainModule) {
             val call = handleRequest(HttpMethod.Get, "")
-            assertEquals(HttpStatusCode.OK, call.response.status())
+            Assert.assertEquals(HttpStatusCode.OK, call.response.status())
         }
     }
 
@@ -20,7 +20,7 @@ class ApplicationTest {
         withTestApplication(Application::mainModule) {
             val call = handleRequest(HttpMethod.Get, "/username")
 
-            assertEquals("""{ "Username: ": "username" }""".asJson(), call.response.content?.asJson())
+            Assert.assertEquals("""{ "Username: ": "username" }""".asJson(), call.response.content?.asJson())
         }
     }
 }

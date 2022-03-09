@@ -48,7 +48,7 @@ class NoteTest {
             createNote(id, "example 1")
 
             val afterCreated = handleRequest(HttpMethod.Get, "/note/${id}")
-            Assert.assertEquals("""[{"id": "$id", "content": "example 1"}]""".asJson(), afterCreated.response.content?.asJson())
+            Assert.assertEquals("""{"id": "$id", "content": "example 1"}""".asJson(), afterCreated.response.content?.asJson())
         }
     }
 

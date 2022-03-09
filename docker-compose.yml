@@ -1,0 +1,24 @@
+version: '1'
+services:
+  taking_notes_database:
+    image: postgres:11
+    ports:
+      - 5555:5432
+    environment:
+      - POSTGRES_USER=taking_notes
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_DB=taking_notes_db
+
+  web:
+    build:
+      .
+    ports:
+      - 8080:8080
+    depends_on:
+      - taking_notes_database
+    environment:
+      - DB_HOST=taking_notes_database
+      - DB_PORT=5432
+      - DB_NAME=taking_notes_db
+      - DB_USER=taking_notes
+      - DB_PASSWORD=123456
