@@ -18,7 +18,14 @@ dependencies {
     implementation "io.ktor:ktor-server-core:$ktor_version"
     implementation "io.ktor:ktor-server-netty:$ktor_version"
     implementation "io.ktor:ktor-jackson:$ktor_version"
-    implementation "io.ktor:ktor-server-test-host:$ktor_version"
+
+    // TEST AND LOG
+    testImplementation "io.ktor:ktor-server-test-host:$ktor_version"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junit_version"
     implementation "org.junit.jupiter:junit-jupiter-engine:$junit_version"
     implementation 'ch.qos.logback:logback-classic:1.2.11'
+
+    // ORM AND DATABASE
+    implementation 'org.jetbrains.exposed:exposed:0.17.14'
+    implementation 'org.postgresql:postgresql:42.3.3'
 }

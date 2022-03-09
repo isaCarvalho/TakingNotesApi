@@ -1,2 +1,6 @@
-i10:42:26.416 [Test worker] INFO ktor.test - Autoreload is disabled because the development mode is off.
-S10:42:26.426 [Test worker] INFO ktor.test - Application started in 0.066 seconds.
+i13:52:34.206 [Test worker] INFO ktor.test - Autoreload is disabled because the development mode is off.
+S13:52:34.213 [Test worker] INFO ktor.test - Application started in 0.056 seconds.
+„13:52:34.403 [Test worker] DEBUG Exposed - CREATE TABLE IF NOT EXISTS notes (id uuid PRIMARY KEY, "content" VARCHAR(500) NOT NULL)
+i13:52:34.408 [Test worker] DEBUG Exposed - ALTER TABLE notes ADD CONSTRAINT notes_id_unique UNIQUE (id)
+i13:52:34.852 [Test worker] INFO ktor.test - Autoreload is disabled because the development mode is off.
+Q13:52:34.852 [Test worker] INFO ktor.test - Application started in 0.0 seconds.

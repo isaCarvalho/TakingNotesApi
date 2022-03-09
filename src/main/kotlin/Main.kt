@@ -6,6 +6,9 @@ import io.ktor.response.*
 import io.ktor.routing.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
+import org.jetbrains.exposed.sql.Database
+import org.jetbrains.exposed.sql.SchemaUtils
+import org.jetbrains.exposed.sql.transactions.transaction
 import java.util.*
 
 fun main() {
@@ -17,6 +20,19 @@ fun main() {
 }
 
 fun Application.mainModule() {
+    val host = "localhost"
+    val port = 5555
+    val dbName = "taking_notes_db"
+    val dbUser = "taking_notes"
+    val dbPassword = "123456"
+
+    val db = Database.connect("jdbc:postgresql://$host:$port/$dbName", driver = "org.postgresql.Driver",
+    user = dbUser, password = dbPassword)
+
+    transaction {
+        SchemaUtils.create(Notes)
+    }
+
     install(ContentNegotiation) {
         jackson {
             enable(SerializationFeature.INDENT_OUTPUT)
