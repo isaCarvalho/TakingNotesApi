@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="notes.NoteTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-03-09T17:38:01" hostname="FUS-9QQN1J3" time="0.889">
+  <properties/>
+  <testcase name="Create Note" classname="notes.NoteTest" time="0.889"/>
+  <system-out><![CDATA[14:38:01.181 [Test worker] INFO ktor.test - Autoreload is disabled because the development mode is off.
+14:38:01.190 [Test worker] INFO ktor.test - Application started in 0.053 seconds.
+14:38:01.923 [DefaultDispatcher-worker-1 @request#1] DEBUG Exposed - INSERT INTO notes ("content", id) VALUES ('example', 'd7781254-8183-46b4-af67-1f7df2aa8b52')
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

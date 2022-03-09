@@ -6,9 +6,11 @@ import io.ktor.response.*
 import io.ktor.routing.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
+import routers.noteRouter
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.transactions.transaction
+import services.NoteServiceImpl
 import java.util.*
 
 fun main() {
@@ -53,5 +55,7 @@ fun Application.mainModule() {
         get {
             context.respond(mapOf<Date, String>(Pair(Date(), "Welcome to Taking Notes API")))
         }
+
+        noteRouter(NoteServiceImpl())
     }
 }
