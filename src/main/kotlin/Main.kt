@@ -1,13 +1,15 @@
 import com.fasterxml.jackson.databind.SerializationFeature
+import database.DB
+import database.Notes
 import io.ktor.application.*
 import io.ktor.features.*
 import io.ktor.jackson.jackson
+import io.ktor.network.sockets.*
 import io.ktor.response.*
 import io.ktor.routing.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 import routers.noteRouter
-import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.transactions.transaction
 import services.NoteServiceImpl
@@ -22,14 +24,8 @@ fun main() {
 }
 
 fun Application.mainModule() {
-    val host = "localhost"
-    val port = 5555
-    val dbName = "taking_notes_db"
-    val dbUser = "taking_notes"
-    val dbPassword = "123456"
 
-    val db = Database.connect("jdbc:postgresql://$host:$port/$dbName", driver = "org.postgresql.Driver",
-    user = dbUser, password = dbPassword)
+    DB.connect()
 
     transaction {
         SchemaUtils.create(Notes)
@@ -44,12 +40,6 @@ fun Application.mainModule() {
     routing {
         trace {
             application.log.trace(it.buildText())
-        }
-
-        get("/{name}") {
-            val name = call.parameters["name"]
-
-            context.respond(mapOf("Username: " to name))
         }
 
         get {

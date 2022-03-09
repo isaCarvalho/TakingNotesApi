@@ -1,3 +1,9 @@
-i14:38:01.181 [Test worker] INFO ktor.test - Autoreload is disabled because the development mode is off.
-S14:38:01.190 [Test worker] INFO ktor.test - Application started in 0.053 seconds.
-£14:38:01.923 [DefaultDispatcher-worker-1 @request#1] DEBUG Exposed - INSERT INTO notes ("content", id) VALUES ('example', 'd7781254-8183-46b4-af67-1f7df2aa8b52')
+G15:18:55.390 [Test worker] DEBUG Exposed - DROP TABLE IF EXISTS notes
+i15:18:55.489 [Test worker] INFO ktor.test - Autoreload is disabled because the development mode is off.
+S15:18:55.494 [Test worker] INFO ktor.test - Application started in 0.044 seconds.
+Ñ15:18:55.532 [Test worker] DEBUG Exposed - CREATE TABLE IF NOT EXISTS notes (id uuid PRIMARY KEY, "content" VARCHAR(500) NOT NULL)
+i15:18:55.537 [Test worker] DEBUG Exposed - ALTER TABLE notes ADD CONSTRAINT notes_id_unique UNIQUE (id)
+•15:18:56.101 [DefaultDispatcher-worker-1 @request#1] DEBUG Exposed - INSERT INTO notes ("content", id) VALUES ('example 1', 'd9f86b41-6bc0-4e10-93be-2f30903b0ca5')
+r15:18:56.126 [DefaultDispatcher-worker-1 @request#3] DEBUG Exposed - SELECT notes.id, notes."content" FROM notes
+ê15:18:56.179 [DefaultDispatcher-worker-2 @request#7] DEBUG Exposed - DELETE FROM notes WHERE notes.id = 'd9f86b41-6bc0-4e10-93be-2f30903b0ca5'
+r15:18:56.191 [DefaultDispatcher-worker-2 @request#9] DEBUG Exposed - SELECT notes.id, notes."content" FROM notes

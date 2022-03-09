@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="notes.NoteTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-03-09T17:38:01" hostname="FUS-9QQN1J3" time="0.889">
+<testsuite name="notes.NoteTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-03-09T18:18:55" hostname="FUS-9QQN1J3" time="1.068">
   <properties/>
-  <testcase name="Create Note" classname="notes.NoteTest" time="0.889"/>
-  <system-out><![CDATA[14:38:01.181 [Test worker] INFO ktor.test - Autoreload is disabled because the development mode is off.
-14:38:01.190 [Test worker] INFO ktor.test - Application started in 0.053 seconds.
-14:38:01.923 [DefaultDispatcher-worker-1 @request#1] DEBUG Exposed - INSERT INTO notes ("content", id) VALUES ('example', 'd7781254-8183-46b4-af67-1f7df2aa8b52')
+  <testcase name="Delete Note" classname="notes.NoteTest" time="1.068"/>
+  <system-out><![CDATA[15:18:55.390 [Test worker] DEBUG Exposed - DROP TABLE IF EXISTS notes
+15:18:55.489 [Test worker] INFO ktor.test - Autoreload is disabled because the development mode is off.
+15:18:55.494 [Test worker] INFO ktor.test - Application started in 0.044 seconds.
+15:18:55.532 [Test worker] DEBUG Exposed - CREATE TABLE IF NOT EXISTS notes (id uuid PRIMARY KEY, "content" VARCHAR(500) NOT NULL)
+15:18:55.537 [Test worker] DEBUG Exposed - ALTER TABLE notes ADD CONSTRAINT notes_id_unique UNIQUE (id)
+15:18:56.101 [DefaultDispatcher-worker-1 @request#1] DEBUG Exposed - INSERT INTO notes ("content", id) VALUES ('example 1', 'd9f86b41-6bc0-4e10-93be-2f30903b0ca5')
+15:18:56.126 [DefaultDispatcher-worker-1 @request#3] DEBUG Exposed - SELECT notes.id, notes."content" FROM notes
+15:18:56.179 [DefaultDispatcher-worker-2 @request#7] DEBUG Exposed - DELETE FROM notes WHERE notes.id = 'd9f86b41-6bc0-4e10-93be-2f30903b0ca5'
+15:18:56.191 [DefaultDispatcher-worker-2 @request#9] DEBUG Exposed - SELECT notes.id, notes."content" FROM notes
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
